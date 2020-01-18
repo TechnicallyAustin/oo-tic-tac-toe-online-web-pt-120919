@@ -71,14 +71,18 @@ end
 end
 
 def turn_count
-  x_arr = @board.select { |i| i == "X"}
-  o_arr = @board.select { |i| i == "O"}
+  @x_arr = @board.select { |i| i == "X"}
+  @o_arr = @board.select { |i| i == "O"}
   new_arr = x_arr + o_arr
   new_arr.length 
 end
 
 def current_player
-  if turn_count % 2 == 0 
+  if @x_arr > @o_arr
+    puts "X's turn"
+  else puts "O's turn"
+end
+    #use a boolean search enumerator for 
     #does the return value of turn_count have more X's than O's 
     #if true its the turn of whoever has less turns taken .
     
