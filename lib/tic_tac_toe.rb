@@ -84,7 +84,7 @@ end
 
 
 def won?
-  WIN_COMBINATIONS.each do |sub_array|  # each array within WIN_COMBINATIONS
+  WIN_COMBINATIONS.each { |sub_array|  # each array within WIN_COMBINATIONS
     pos_1 = sub_array[0] # 1st element of the first array 
     pos_2 = sub_array[1] # 2nd element of the second array
     pos_3 = sub_array[2] # 3rd element of the third array
@@ -98,10 +98,9 @@ def won?
    elsif b_pos_1 == "O" && b_pos_2 == "O" && b_pos_1 == "O"
       return sub_array
    end
-   
- end
-  end 
-    false
+  }
+  end #close the each 
+    return false
    end
  
 
