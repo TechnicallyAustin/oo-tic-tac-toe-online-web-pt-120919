@@ -1,5 +1,6 @@
 require 'pry'
 class TicTacToe
+  
   WIN_COMBINATIONS = [
   #Row WIN_COMBINATIONS
   [0,1,2],
@@ -39,72 +40,95 @@ end
 
 def position_taken?(index)
  !(@board[index].nil? || @board[index] == " ")
-   
-
   #binding.pry 
 
 end
 
 def valid_move?(index)
-  if position_taken?(index) == false && index < 9 
-    true 
-  else 
-    false 
-  end 
+  if !position_taken?(index) && index.between?(0,8)
+true
+end
   
 end
 
-def turn(moves, player = "X")
-  puts "Pick an area 1 - 9"
-  selected = input_to_index(moves)
-  if position_taken?(selected) == false 
-    @board[selected] = player
-    @board
-  else
-    while position_taken?(selected) == true 
-    puts "Area is currently taken."
-    @board 
-    puts "Pick an area 1 - 9"
-    selected
-  end
-end
-end
 
 def turn_count
-  @x_arr = @board.select { |i| i == "X"}
-  @o_arr = @board.select { |i| i == "O"}
-  new_arr = x_arr + o_arr
-  new_arr.length 
+  board_arr = @board.select { |i| i == "X" || i == "O" }
+  board_arr.length
 end
 
 def current_player
-  if @x_arr > @o_arr
-    puts "X's turn"
-  else puts "O's turn"
+  if turn_count % 2 == 0 
+    player = "X"
+    player 
+  else
+    player = "O"
+    player 
 end
-    #use a boolean search enumerator for 
-    #does the return value of turn_count have more X's than O's 
-    #if true its the turn of whoever has less turns taken .
+end
+
+def turn
+  puts "Pick an area 1 - 9"
+  input = gets.chomp
+  board_pos = input_to_index(input)
+  if valid_move?(board_pos)
+  player_symbol = current_player
+  move(board_pos, player_symbol)
+  display_board
+else
+  turn
+end
+
+end
+  
+
+
+def won?
+  WIN_COMBINATIONS.each do |sub_array|  # each array within WIN_COMBINATIONS
+    pos_1 = sub_array[0] # 1st element of the first array 
+    pos_2 = sub_array[1] # 2nd element of the second array
+    pos_3 = sub_array[2] # 3rd element of the third array
+  
+    b_pos_1 = @board[pos_1] 
+    b_pos_2 = @board[pos_2]
+    b_pos_3 = @board[pos_3]
+   
+   if b_pos_1 == "X" && b_pos_2 == "X" && b_pos_1 == "X"
+       return sub_array
+   elsif b_pos_1 == "O" && b_pos_2 == "O" && b_pos_1 == "O"
+      return sub_array
+   end
+  end 
+    false
+   end
+ end
+ 
+
+def full?
+  end
+
+def draw?
+  if full? && !won?
+      true
+    elsif !full? && !won?
+    false
+  else won?
+    false
+  end
     
 end
 
-def won?
-end
-
-def full?
-end
-
-def draw?
-end
-
 def over?
+  if full? || won?
+    true
+  end
 end
 
 def winner 
+  
 end
 
 def play 
 end
 
-    
-end
+  
