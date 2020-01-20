@@ -84,24 +84,9 @@ end
 
 
 def won?
-  WIN_COMBINATIONS.each { |sub_array|  # each array within WIN_COMBINATIONS
-    pos_1 = sub_array[0] # 1st element of the first array 
-    pos_2 = sub_array[1] # 2nd element of the second array
-    pos_3 = sub_array[2] # 3rd element of the third array
-  
-    b_pos_1 = @board[pos_1] 
-    b_pos_2 = @board[pos_2]
-    b_pos_3 = @board[pos_3]
+  WIN_COMBINATIONS. # 1st 
    
-   if b_pos_1 == "X" && b_pos_2 == "X" && b_pos_1 == "X"
-       return sub_array
-   elsif b_pos_1 == "O" && b_pos_2 == "O" && b_pos_1 == "O"
-      return sub_array
-   end
-  }
-end
-     false
-   end
+  
  
 
 def full?
