@@ -102,7 +102,6 @@ def won?
   end 
     false
    end
- end
  
 
 def full?
