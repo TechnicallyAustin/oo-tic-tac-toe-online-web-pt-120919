@@ -98,7 +98,7 @@ def won?
    elsif b_pos_1 == "O" && b_pos_2 == "O" && b_pos_1 == "O"
       return sub_array
    end
-   
+ end
   end 
     false
    end
