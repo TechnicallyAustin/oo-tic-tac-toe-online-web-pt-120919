@@ -99,6 +99,7 @@ def won?
       return sub_array
    end
   }
+end
     return false
    end
  
