@@ -85,8 +85,8 @@ end
 
 def won?
   WIN_COMBINATIONS.select { |win_array|
-  win_array[0] == "X" && win_array[1] == "X" && win_array[2] == "X" ||
-  win_array[0] == "O" && win_array[1] == "O" && win_array[2] == "O"}
+  (win_array[0] == "X" && win_array[1] == "X" && win_array[2] == "X" ) ||
+  (win_array[0] == "O" && win_array[1] == "O" && win_array[2] == "O" )
 end
 end 
   
