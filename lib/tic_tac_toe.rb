@@ -99,7 +99,6 @@ def won?
       return sub_array
    end
   }
-  end #close the each 
     return false
    end
  
