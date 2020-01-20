@@ -85,10 +85,13 @@ end
 
 def won?
   WIN_COMBINATIONS.select { |win_array|
-  win = win_array.all? { |index| index == "X" || index == "O"}
-  if win
+  win_x = win_array.all? { |index| index == "X"}
+  win_o = win_array.all? { |index| index == "X"}
+  if win_x
     win_array
-  else 
+  elsif win_o
+  win_array
+else
     return false 
   binding.pry 
 end
